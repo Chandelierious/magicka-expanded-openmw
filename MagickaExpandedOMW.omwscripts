@@ -1,0 +1,3 @@
+LOAD: scripts/MagickaExpandedOMW/load.lua
+GLOBAL: scripts/MagickaExpandedOMW/global.lua
+PLAYER: scripts/MagickaExpandedOMW/player.lua
