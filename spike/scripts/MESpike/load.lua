@@ -46,11 +46,15 @@ local function onContentFilesLoaded()
 
   -- Spells carrying the custom effects. duration >= 2s so the per-frame
   -- watcher cannot miss them (experiment 2).
+  -- Testing config: free to cast, always succeeds (alwaysSucceedFlag skips
+  -- skill checks; isAutocalc=false so cost=0 is taken literally).
   attempt('create spell mespike_spell_blink', function()
     content.spells.records.mespike_spell_blink = {
       name = 'Spike: Blink',
       type = content.spells.TYPE.Spell,
-      cost = 5,
+      cost = 0,
+      isAutocalc = false,
+      alwaysSucceedFlag = true,
       effects = { { id = 'mespike_blink', duration = 2, magnitudeMin = 1, magnitudeMax = 1 } },
     }
   end)
@@ -60,7 +64,9 @@ local function onContentFilesLoaded()
     content.spells.records.mespike_spell_summon = {
       name = 'Spike: Summon Test',
       type = content.spells.TYPE.Spell,
-      cost = 5,
+      cost = 0,
+      isAutocalc = false,
+      alwaysSucceedFlag = true,
       effects = { { id = 'mespike_summontest', duration = 10, magnitudeMin = 1, magnitudeMax = 1 } },
     }
   end)
@@ -73,7 +79,9 @@ local function onContentFilesLoaded()
     content.spells.records.mespike_spell_control = {
       name = 'Spike: Control (Levitate)',
       type = content.spells.TYPE.Spell,
-      cost = 1,
+      cost = 0,
+      isAutocalc = false,
+      alwaysSucceedFlag = true,
       effects = { { id = 'levitate', duration = 10, magnitudeMin = 50, magnitudeMax = 50 } },
     }
   end)
